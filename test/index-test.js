@@ -13,17 +13,17 @@ import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
 
-// describe('BandInput component', () => {
-//   it('has an text input field', () => {
-//     const wrapper = shallow(<BandInput />)
-//     expect(wrapper.find('input').first().type()).to.equal('input');
-//   });
+describe('BandInput component', () => {
+  it('has an text input field', () => {
+    const wrapper = shallow(<BandInput />)
+    expect(wrapper.find('input').first().type()).to.equal('input');
+  });
 
-  // it('has an initial state with name key set to empty string', () => {
-  //   const wrapper = shallow(<BandInput />)
-  //   expect(wrapper.state(), "BandInput state was not found").to.exist
-  //   expect(wrapper.state('name')).to.equal('')
-  // });
+  it('has an initial state with name key set to empty string', () => {
+    const wrapper = shallow(<BandInput />)
+    expect(wrapper.state(), "BandInput state was not found").to.exist
+    expect(wrapper.state('name')).to.equal('')
+  });
 
   it('changes the local state on input change', () => {
     const wrapper = shallow(<BandInput />)
@@ -33,23 +33,23 @@ configure({ adapter: new Adapter() })
     expect(wrapper.state('name'), "BandInput state did not contain the correct value").to.equal('Hello')
   })
 
-  it('calls dispatch when form is submitted', () => {
-    const store = createStore(manageBand)
-
-    let spy = sinon.spy(store, "dispatch")
-
-    const wrapper = mount(<Provider store={store}><App /></Provider>)
-
-    expect(wrapper.find('input').length > 0, "No input elements found in the application").to.equal(true)
-    let input = wrapper.find('input').first()
-    let form = wrapper.find('form')
-
-    input.simulate('change', { target: { value: 'Hello' } })
-    form.simulate('submit',  { preventDefault() {} })
-
-    expect(spy.calledOnce).to.equal(true);
-
-  });
+  // it('calls dispatch when form is submitted', () => {
+  //   const store = createStore(manageBand)
+  //
+  //   let spy = sinon.spy(store, "dispatch")
+  //
+  //   const wrapper = mount(<Provider store={store}><App /></Provider>)
+  //
+  //   expect(wrapper.find('input').length > 0, "No input elements found in the application").to.equal(true)
+  //   let input = wrapper.find('input').first()
+  //   let form = wrapper.find('form')
+  //
+  //   input.simulate('change', { target: { value: 'Hello' } })
+  //   form.simulate('submit',  { preventDefault() {} })
+  //
+  //   expect(spy.calledOnce).to.equal(true);
+  //
+  // });
 });
 
 // describe('Redux', () => {
